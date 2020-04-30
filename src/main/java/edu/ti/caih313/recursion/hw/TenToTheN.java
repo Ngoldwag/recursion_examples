@@ -17,8 +17,22 @@ public class TenToTheN {
         BigInteger tenToNum = tenToTheN(number);
         System.out.println("10^" + number + " =" + ((fraction)?" 1/":" ") + tenToNum);
     }
+   static BigInteger ONE_THOUSAND = BigInteger.valueOf(1000);
+    String formatBigInteger(BigInteger val, String suffix) {
+        String formattedNumber;
+//        =
+//                (val.compareTo(ONE_THOUSAND)<0)
+//        ? (val.toString()+suffix)
+//                :(formatBigInteger(val.divide(ONE_THOUSAND), ",000" =suffix));
+         if (val.compareTo(ONE_THOUSAND) < 0) {
+            formattedNumber = val.toString() + suffix;
+        } else {
+            formattedNumber = formatBigInteger(val.divide(ONE_THOUSAND), ",000" + suffix);
+        }
+        return formattedNumber;
+    }
 
-   static BigInteger tenToTheN(int n) {
+        static BigInteger tenToTheN(int n) {
         BigInteger val;
         if (n == 0) {
             val = BigInteger.ONE;

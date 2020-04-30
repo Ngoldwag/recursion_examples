@@ -13,6 +13,7 @@ public class MergeSortDemo {
         for (int i = 0; i < anArray.length; i++) {
             System.out.print(anArray[i] + " ");
         }
+        MergeSort.getNumberOfCopies();
         System.out.println("Exiting MergeSortDemo.main");
     }
 }
